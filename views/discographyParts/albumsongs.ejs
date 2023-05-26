@@ -1,0 +1,41 @@
+<div class="container">
+  <%
+      if(data.user){
+      if(data.user.username=='admin'){%>
+        <a class="btn btn-danger" href="admin/createalbum">Dodaj album</a>
+        <a class="btn btn-danger" href="admin/createsong">Dodaj pesmu</a>
+        <%}}%>
+  <% if(data.data.length>0){ data.data.forEach(e=>{%>
+  <div class="row">
+    <h2><%=e.album_name%></h2>
+    <% if(e.songs.length>0){%>
+    <div class="row">
+      <%e.songs.forEach(e1=>{%>
+      <div class="col col-md-2 p-1">
+        <div class="card text-white bg-dark">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%=e1.song_name %></h5>
+            <iframe
+              class="col-sm-12"
+              width="560"
+              height="315"
+              src="<%=e1.yt_link %>"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+
+      <%})%>
+    </div>
+    <% }else{%>
+    <h2 class="text-danger text-center bg-dark p-5">Ne postoji ni jedna pesma sa albuma <%=e.album_name%></h2>
+    <%}%>
+  </div>
+  <%})} else{%>
+  <h2 class="text-danger text-center bg-dark p-5">Ne postoji ni jedan album</h2>
+  <%} %>
+</div>

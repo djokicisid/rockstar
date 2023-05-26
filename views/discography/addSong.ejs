@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh; color: white;">
+    <form action="/admin/addSong" method="post" class="col-md-8 col-lg-6 p-5 bg-dark">
+        <div class="form-group">
+            <label for="song_name" class="p-1">Ime pesme:</label>
+            <input type="text" class="form-control p-1" name="song_name" placeholder="Unesite ime pesme..." required>
+                
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="yt_link" class="p-1">YouTube link:</label>
+            <input type="text" class="form-control p-1" name="yt_link" placeholder="Unesite YouTube link pesme..." required>
+               
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="id_albums" class="p-1">Album:</label>
+            <select name="id_albums" class="p-1 form-select">
+                <%data.data.forEach(e=>{%>
+                <option value="<%=e.id_albums%>"><%=e.album_name%></option>
+                <%})%>
+            </select>
+        </div>
+        <br>
+        <div class="d-flex justify-content-between">  
+            <button type="submit" class="btn btn-primary">Sačuvaj</button>
+            <button type="reset" class="btn btn-primary">Resetuj</button>
+        </div>
+      </form>
+</div>

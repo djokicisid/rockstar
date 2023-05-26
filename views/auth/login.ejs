@@ -1,0 +1,45 @@
+
+    <!--Prva verzija: -->
+
+    <!--
+        <form action="/auth/loginProccess" method="post" class="col-md-8 col-lg-3 p-2 m-auto">
+        <%if(typeof data!='undefined'){%>
+            <div class="h6 text-danger text-center"><%=data%></div>
+        <%}%>
+        <div class="m-3">
+            <input type="text" class="form-control" name="username" placeholder="Unesite korisnicko ime" >
+        </div>
+        <div class="m-3">
+            <input type="password" class="form-control" type="password" name="password" placeholder="Unesite lozinku" >
+        </div>
+        <div class="m-3">
+            <button type="submit" class="btn btn-primary">Prijava</button>
+            <br/>
+            <a href="/" class="nav nav-link">Vratite se</a>
+        </div>
+    </form>-->
+
+<div class="d-flex justify-content-center align-items-center" style="height: 72vh; background-image: url('https://townsquare.media/site/295/files/2022/04/attachment-RHCP-collage-3.jpg'); color: white;">
+    <form action="/auth/loginProccess" method="post" class="col-md-8 col-lg-4 p-5" style="background-color:rgba(52, 52, 52, 0.898);" >
+        <%if(typeof data.msg!='undefined'){%>
+            <div class="h6 text-danger text-center"><%=data.msg%></div>
+        <%}%>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="p-1">Korisničko ime:</label>
+          <input type="text" class="form-control p-1" name="username" placeholder="Unesite korisnicko ime..." required>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="p-1">Lozinka:</label>
+          <input type="password" class="form-control p-1" name="password" placeholder="Unesite lozinku..." required>
+        </div>
+        <br>
+
+        <div class="d-flex justify-content-between">  
+                <button type="submit" class="btn btn-primary">Prijavi se</button>
+                <a href="/" class="btn btn-primary">Pocetna</a>
+        </div>
+
+        <a class="dropdown-item p-1" href="/auth">Nemate nalog? Registrujte se brzo i lako.</a>
+      </form>
+</div>

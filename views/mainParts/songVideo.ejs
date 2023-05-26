@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center p-5">
+    <% if(data.lastSongs.length>0){ data.lastSongs.forEach(e=>{%>
+
+    <div class="col-sm-4">
+      <div class="card text-white bg-dark">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%=e.song_name%></h5>
+
+          <p class="card-text text-center"><%=e.album_name%></p>
+
+          <iframe
+            class="col-sm-12"
+            width="560"
+            height="315"
+            src="<%=e.yt_link%>"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
+        </div>
+      </div>
+    </div>
+    <%}) }else{%>
+    <h2 class="text-danger text-center bg-dark p-5">
+      Ne postoji ni jedna pesma na najnovijem albumu
+    </h2>
+    <%} %>
+  </div>
+</div>

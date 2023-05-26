@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh; color: white;">
+    <form action="/admin/addConcert" method="post" class="col-md-8 col-lg-6 p-5 bg-dark">
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="p-1">Država:</label>
+            <input type="text" class="form-control p-1" name="country" placeholder="Unesite ime države..." required>
+                
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="p-1">Grad:</label>
+            <input type="text" class="form-control p-1" name="city" placeholder="Unesite ime grada..." required>
+               
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="p-1">Opis:</label>
+            <input type="text" class="form-control p-1" name="description" placeholder="Unesite opis..." required>
+                
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="p-1">Aktivan:</label>
+            <input type="text" class="form-control p-1" name="is_active" placeholder="Unesite da li je koncert aktivan.." required>
+                <%if(typeof data.msg!='undefined'){%>
+                <div class="h6 text-danger text-center"><%=data.msg%></div>
+                <%}%>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="p-1">Datum:</label>
+            <input type="date" class="form-control p-1" name="start_date" placeholder="Unesite datum koncerta.." required>
+          
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="p-1">Broj karata:</label>
+            <input type="number" class="form-control p-1" name="cardsCount" placeholder="Unesite broj karata.." required>
+          
+        </div>
+        <br>
+        <div class="d-flex justify-content-between">  
+            <button type="submit" class="btn btn-primary">Sačuvaj</button>
+            <button type="reset" class="btn btn-primary">Resetuj</button>
+            <!--<a href="/"><button class="btn btn-primary">Pocetna</button></a>-->
+        </div>
+      </form>
+</div>

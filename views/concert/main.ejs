@@ -1,0 +1,49 @@
+ <div style="background-color: rgb(201, 201, 201); color: black">
+    <div class="p-5">  
+      <% if(data.data.length>0){%>
+      <table class="table" style="background-color: transparent; color: black">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Zemlja</th>
+            <th scope="col">Grad</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Status</th>
+           <th scope="col"></th> 
+          </tr>
+        </thead>  
+        <tbody>  
+          <%data.data.forEach((e,i)=>{%>
+          <tr>
+            <th scope="row"><%= i+1%></th>
+            <td><%= e.country%></td>
+            <td><%= e.city%></td>
+            <td><%= e.start_date.toLocaleDateString().slice(0,-1)%>, <%=e.start_date.toLocaleTimeString().slice(0,-3)%></td>  
+            <td><%= e.description%></td>  
+            <td><%= e.is_active?'dostupan':'rasprodat'%></td>  
+            <td class="d-flex justify-content-evenly align-items-center">
+              <% if(e.is_active){ %> <a href="/concerts/reserveCard/<%=e.id_concert%>" class="btn btn-primary">Rezerviši</a>
+              <a href="/concerts/buyCard/<%=e.id_concert%>" class="btn btn-danger">Kupi</a>
+              <%}else{%> <a href="#" class="btn btn-primary disabled">Rezerviši</a>
+              <a href="#" class="btn btn-danger disabled">Kupi</a>
+              
+              <%} %>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+
+
+      <%
+      if(data.user){
+      if(data.user.username=='admin'){%>
+        <a class="btn btn-primary" href="/admin/createconcert">Dodaj koncert</a>
+        <%}}%>
+
+      <%} else{%>
+      <h2 class="text-danger text-center bg-dark p-5">Ne postoji ni jedan koncert u rasporedu</h2>
+      <%}%>
+    </div>
+  </div>
